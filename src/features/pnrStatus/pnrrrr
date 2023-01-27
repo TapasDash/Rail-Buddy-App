@@ -1,0 +1,23 @@
+import axios from "axios";
+import dotenv from 'dotenv'
+
+
+const { PNR_API_URL,RAPID_API_HOST,RAPID_API_KEY } = process.env;
+
+const getPNRStatus = async (pnrNumber) => {
+  const config = {
+    headers: {
+      "X-RapidAPI-Key": RAPID_API_KEY,
+      "X-RapidAPI-Host": RAPID_API_HOST
+    },
+  };
+
+  const response = await axios.get(PNR_API_URL + pnrNumber, config);
+  response.data;
+};
+
+const pnrStatusService = {
+  getPNRStatus,
+};
+
+export default pnrStatusService;

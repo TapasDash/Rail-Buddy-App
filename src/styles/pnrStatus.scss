@@ -1,0 +1,54 @@
+@import "colors";
+
+.pnrStatusContainer {
+    height: 70vh;
+    width: 100%;
+    max-width: 900px;
+    // background-color:rgb(55, 164, 207); //before giving color we have to give height and width first
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem; //gap b/w flex items
+        justify-content: center;
+        color: $primary;
+        position: relative;    
+        top: 30%;
+
+        h4 {
+            margin: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        input {
+            width: 80%;
+            height: 7vh;
+            border-radius: 7px;
+            box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.66);
+            text-align: center;
+            padding-bottom: 1rem;
+            margin: 0.5rem;
+        }
+
+        button {
+            width: 80%;
+            margin: 2rem;
+            border-radius: 7px;
+            background-color: $primary;
+            color: whitesmoke;
+            height: 7vh;
+            outline: none;  //these two are almost mandatory in button styles
+            border: none;
+            box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.66);
+            cursor: pointer;
+        }
+    }   
+}
+
+@media screen and (min-width:600px) {
+
+    .pnrStatusContainer {
+        margin: 0 auto; //for centering a div
+    }
+}
