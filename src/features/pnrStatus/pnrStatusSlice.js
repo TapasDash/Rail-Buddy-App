@@ -1,32 +1,33 @@
-import {  createSlice,createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import pnrStatusService from "./pnrStatusService";
 
 const initialState = {
-    isError: false,
+  isError: false,
   isSuccess: false,
   isLoading: false,
   message: "",
-  pnrStatusData:{}
-//   arrivalData: {
-//     arrivalDate: "",
-//     arrivalTime: "",
-//   },
-//   boardingStation: "",
-//   charStatus: "",
-//   class: "",
-//   passenger: [],
-//   quota: "",
-//   reservationUpto: "",
-//   trainName: "",
-//   trainNumber: "",
+  pnrStatusData: null,
+  //   arrivalData: {
+  //     arrivalDate: "",
+  //     arrivalTime: "",
+  //   },
+  //   boardingStation: "",
+  //   charStatus: "",
+  //   class: "",
+  //   passenger: [],
+  //   quota: "",
+  //   reservationUpto: "",
+  //   trainName: "",
+  //   trainNumber: "",
 };
 
-
-export const getPNRStatus = createAsyncThunk("get/pnrStatus",async(pnrNumber,thunkAPI)=>{
+export const getPNRStatus = createAsyncThunk(
+  "get/pnrStatus",
+  async (pnrNumber, thunkAPI) => {
     try {
-        return await pnrStatusService.getPNRStatus(pnrNumber)
+      return await pnrStatusService.getPNRStatus(pnrNumber);
     } catch (error) {
-        const message =
+      const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
@@ -34,36 +35,39 @@ export const getPNRStatus = createAsyncThunk("get/pnrStatus",async(pnrNumber,thu
         error.toString();
       return thunkAPI.rejectWithValue(message);
     }
-})
+  }
+);
 
 const pnrStatusSlice = createSlice({
-    name: "pnrStatus",
-    initialState,
-    reducers: {
-        reset: (state) => initialState,
-      },
+  name: "pnrStatus",
+  initialState,
+  reducers: {
+    reset: (state) => initialState,
+  },
 
-      extraReducers:(builder)=>{
-        builder
-        .addCase(getPNRStatus.pending, (state) => {
-            state.isLoading = true;
-          })
-          .addCase(getPNRStatus.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.isSuccess = true;
-            state.pnrStatusData.push(action.payload);
-          })
-          .addCase(getPNRStatus.rejected, (state, action) => {
-            state.isLoading = false;
-            state.isError = true;
-            state.message = action.payload;
-          })
-      }
-})
+  extraReducers: (builder) => {
+    builder
+      .addCase(getPNRStatus.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getPNRStatus.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        console.log("action payload", action.payload);
+        console.log({ state, action });
+        state.pnrStatusData = action.payload;
+      })
+      .addCase(getPNRStatus.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
+      });
+  },
+});
 
 const {
-    actions: { reset },
-    reducer: pnrStatusReducer,
-  } = pnrStatusSlice;
-  
-  export { pnrStatusSlice, pnrStatusReducer, reset };
+  actions: { reset },
+  reducer: pnrStatusReducer,
+} = pnrStatusSlice;
+
+export { pnrStatusSlice, pnrStatusReducer, reset };

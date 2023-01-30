@@ -1,5 +1,4 @@
 import axios from "axios";
-import PnrStatus from "../../components/PnrStatus";
 
 const PNR_API_URL = "https://pnr-status-indian-railway.p.rapidapi.com/pnr-check/";
 
@@ -11,8 +10,10 @@ const getPNRStatus = async (pnrNumber) => {
     },
   };
 
-  const response = await axios.get(PNR_URL + pnrNumber, config);
-  response.data;
+  const response = await axios.get(PNR_API_URL + pnrNumber, config);
+  console.log({ response })
+  console.log(response.data.data)
+  return response.data.data;
 };
 
 const pnrService = {
