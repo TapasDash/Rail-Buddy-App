@@ -1,0 +1,85 @@
+@import "colors";
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    svg {
+        font-size: 5rem;
+        margin-left: 3rem;
+
+        &:hover {
+            color: whitesmoke;
+        }
+    }
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-right: 10rem;
+    gap: 3rem;
+}
+
+
+
+
+a:hover {
+    color: whitesmoke;
+}
+
+.mobile-menu-icons{
+    display: none;
+}
+
+@media screen and (max-width: 780px) {
+
+    .navbar {
+
+        .nav-links {
+            display: none;
+        }
+
+        .nav-links-mobile {
+            position: absolute;
+            display: inline-block;
+            list-style: none;
+            background-color: $secondary;
+            left: 0;
+            top: 5rem;
+            transition: all 0.5s ease-out;
+            width: 100%;
+
+            a {
+                color: $primary;
+                text-align: center;
+                padding: 2rem;
+                width: 100%;
+                transition: all 0.5s ease;
+
+                &:hover {
+                    color: whitesmoke;
+                }
+            }
+        }
+
+        .mobile-menu-icons {
+            display: inline-block;
+            svg {
+                padding: 0;
+                margin: 0;
+                font-size: 3rem;
+                background-color: $primary;
+            }
+            margin: 1rem;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            color: $secondary;
+        }
+    }
+
+
+}

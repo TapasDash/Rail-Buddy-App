@@ -1,0 +1,43 @@
+@import "colors";
+
+.trainInfoCard {
+    width: 80%;
+    color: $primary;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    text-align: center;
+    border: 1px solid $primary;
+    box-shadow: 0 0 10px $primary;
+    border-radius: 7px;
+    
+       > .trainInfoSection {
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            gap: 0.25rem;
+
+            svg {
+                font-size: 2rem;
+            }
+        }
+
+        > .stationSection {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+    
+}
+
+
+@media screen and (min-width: 600px) {
+    .trainInfoCard {
+        display: flex;
+        gap: 0.0005rem;
+    }
+}
