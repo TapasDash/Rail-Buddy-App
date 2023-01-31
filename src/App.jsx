@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import Home from "./components/layout/Home";
+import Navbar from "./components/layout/Navbar";
 import PnrDetails from "./components/PnrDetails";
 import PnrStatus from "./components/PnrStatus";
 import TrainBetweenStations from "./components/TrainBetweenStations";
@@ -11,7 +12,8 @@ import "./styles/app.scss";
 function App() {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/train-btw-stn" element={<TrainBetweenStations />} />
