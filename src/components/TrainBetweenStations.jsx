@@ -1,7 +1,5 @@
 import "../styles/trainBetweenStations.scss";
 
-import data from "./csvjson.json";
-
 const TrainBetweenStations = () => {
   return (
     <section className="trainBetweenStationsContainer">
