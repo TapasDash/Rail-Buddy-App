@@ -1,0 +1,15 @@
+@import "colors";
+
+
+.trainTimetableDetails {
+    width: 100%;
+    height: 100vh;
+
+    table {
+        margin: 10rem auto;
+
+        tr,td,th {
+            padding: 0.5rem;
+        }
+    }
+}

@@ -1,6 +1,5 @@
 import "../styles/trainBetweenStations.scss";
 
-
 const TrainBetweenStations = () => {
   return (
     <section className="trainBetweenStationsContainer">
