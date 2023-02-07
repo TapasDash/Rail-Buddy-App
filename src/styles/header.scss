@@ -1,18 +1,17 @@
 @import "colors";
 
 .navbar {
-    background-color: $primary;
-    color: $secondary;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.299);
-    height: 10vh;
-    
-    svg {
-        padding: 0.5rem;
-        font-size: 3rem;
-        color: $secondary
-    }
+  background-color: $primary;
+  color: $secondary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.299);
+  height: 13vh;
 
+  svg {
+    padding: 0.5rem;
+    font-size: 3rem;
+    color: $secondary;
+  }
 }
