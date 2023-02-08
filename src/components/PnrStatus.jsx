@@ -16,10 +16,8 @@ const PnrStatus = () => {
     (state) => state.pnrStatus
   );
 
-  console.log({ pnrStatusData });
   const submitPnr = (e) => {
     e.preventDefault();
-    console.log({ pnrNumber });
     dispatch(getPNRStatus(pnrNumber));
     navigate("/pnr-details");
   };
