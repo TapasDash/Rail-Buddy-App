@@ -1,4 +1,5 @@
 @import "colors";
+@import "trainTimetableDetails";
 
 .seatInfo {
     display: flex;
@@ -11,14 +12,52 @@
     border: 1px solid $primary;
     border-radius: 7px;
     box-shadow: 0 0 10px $primary;
+    overflow-y: scroll;
     // flex-direction: column;
     p {
         margin-top: 1rem;
     }
 }
 
-@media screen and (min-width: 600px) {
-    .seatInfo {
-        width: 40%;
+.trainTimetableDetails {
+    margin: 0 auto;
+    table {
+        overflow-y: scroll;
+        border-radius: 7px;
+        box-shadow: 0 0 10px $primary;
+        border: 1px solid $primary;
+        tr,td,th {
+            color: $primary;
+        }
     }
 }
+
+
+
+@media screen and (max-width: 600px) {
+    .seatInfo {
+        width: 40%;
+        padding: 1rem;
+        text-align: center;
+        height: fit-content;
+        // height: max-content;
+        flex-direction: column;
+        overflow-y:scroll;
+    }
+
+    table {
+        tr {
+            //we will hide 1st,6th and 7th column when screen size would be small
+            th:nth-child(1),td:nth-child(1),
+            th:nth-child(6),td:nth-child(6),
+            th:nth-child(7),td:nth-child(7) {
+
+                display:none;
+
+             }
+            
+        }
+    }
+}
+
+

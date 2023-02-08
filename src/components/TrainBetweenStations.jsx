@@ -44,14 +44,17 @@ const TrainBetweenStations = () => {
           type="text"
           placeholder="Station Name/ Station Code"
           name="fromStation"
-          value={trainData.fromStation}
+          value={
+            trainData.fromStation.name &&
+            `${trainData.fromStation.name} - ${trainData.fromStation.code} `
+          }
           onChange={handleChange}
         />
         <div className="dropdown">
-          {trainData.fromStation &&
+          {trainData.fromStation.name &&
             data
               .filter((item) => {
-                const searchTerm = trainData.fromStation.toLowerCase();
+                const searchTerm = `${trainData.fromStation.name} - ${trainData.fromStation.code} `;
                 const fullName = item.name.toLowerCase();
                 const { code } = item;
 
@@ -76,7 +79,7 @@ const TrainBetweenStations = () => {
                   className="dropdown-row"
                   key={item.code}
                 >
-                  {item.name}-{item.code}
+                  {item.name} - {item.code}
                 </div>
               ))}
         </div>
@@ -92,7 +95,7 @@ const TrainBetweenStations = () => {
           {trainData.toStation &&
             data
               .filter((item) => {
-                const searchTerm = trainData.toStation.toLowerCase();
+                const searchTerm = `${trainData.toStation.name} - ${trainData.toStation.code} `;
                 const fullName = item.name.toLowerCase();
                 const { code } = item;
 

@@ -35,9 +35,18 @@
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
+    .trainInfoCard {
+        padding: 1.1rem;
+        display: flex;
+        gap: 0.005rem;
+        margin: 7rem auto;
+    }
+}
+
+@media screen and (max-width:400px) {
     .trainInfoCard {
         display: flex;
-        gap: 0.0005rem;
+        flex-direction: column;
     }
 }
