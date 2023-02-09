@@ -16,14 +16,13 @@ function App() {
       {/* <Header /> */}
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<PnrStatus />} />
         <Route path="/train-btw-stn" element={<TrainBetweenStations />} />
         <Route path="/train-timetable" element={<TrainTimetable />} />
         <Route
           path="/train-timetable-details"
           element={<TrainTimetableDetails />}
         />
-        <Route path="/pnr-status" element={<PnrStatus />} />
         <Route path="/pnr-details" element={<PnrDetails />} />
       </Routes>
       {/* <Footer /> */}

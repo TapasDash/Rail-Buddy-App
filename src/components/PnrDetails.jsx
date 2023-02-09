@@ -5,7 +5,7 @@ import { pnrData } from "./pnrData";
 import TrainInfoCard from "./TrainInfoCard";
 
 import "../styles/pnrDetails.scss";
-import { getPNRStatus } from "../features/pnrStatus/pnrStatusSlice";
+import { getPNRStatus, reset } from "../features/pnrStatus/pnrStatusSlice";
 
 const PnrDetails = () => {
   // const {
@@ -33,7 +33,7 @@ const PnrDetails = () => {
     if (isError) console.error(message);
 
     if (!isSuccess) {
-      navigate("/pnr-status");
+      navigate("/");
     }
     // return () => {
     //   dispatch(reset());
@@ -48,7 +48,7 @@ const PnrDetails = () => {
     seatInfo: { coach, berth, noOfSeats },
     trainInfo: { dt, name, trainNo },
     trainRoutes,
-  } = pnrStatusData;
+  } = pnrStatusData || {};
   const fromStation = {
     code: boardingInfo?.stationCode,
     name: boardingInfo?.stationName,

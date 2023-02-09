@@ -9,10 +9,21 @@
 
     table {
         margin: 10rem auto;
-
+        padding: 5rem;
         tr,td,th {
-            padding: 0.5rem;
+            padding: 1.5rem;
         }
         
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .trainTimetableDetails {
+        table {
+            tr,td,th {
+                padding: 0.5rem;
+            }
+            
+        }
     }
 }
