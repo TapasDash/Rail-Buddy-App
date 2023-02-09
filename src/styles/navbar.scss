@@ -5,6 +5,10 @@
     justify-content: space-between;
     align-items:center;
 
+    .nav-tags {
+        display: flex;
+    }
+
     svg {
         font-size: 5rem;
         margin-left: 3rem;
@@ -13,6 +17,14 @@
             color: whitesmoke;
         }
     }
+
+    button {
+        font-size: 5rem;
+        &:hover {
+            color: whitesmoke;
+        }
+    }
+    
 }
 
 .nav-links {
@@ -40,6 +52,11 @@ a:hover {
 
         .nav-links {
             display: none;
+        }
+
+        .nav-tags {
+            display: flex;
+            justify-content: space-between;
         }
 
         .nav-links-mobile {
