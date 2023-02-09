@@ -44,10 +44,7 @@ const TrainBetweenStations = () => {
           type="text"
           placeholder="Station Name/ Station Code"
           name="fromStation"
-          value={
-            trainData.fromStation.name &&
-            `${trainData.fromStation.name} - ${trainData.fromStation.code} `
-          }
+          value={trainData.fromStation.name}
           onChange={handleChange}
         />
         <div className="dropdown">
