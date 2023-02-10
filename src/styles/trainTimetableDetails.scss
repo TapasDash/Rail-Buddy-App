@@ -17,9 +17,16 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
     .trainTimetableDetails {
+        display: inline;
+        // width: 50%;
+        // height: 50vh;
+        // overflow-y: scroll;
+        text-align: center;
         table {
+            margin: 5rem auto;
+            padding: 0rem;
             tr,td,th {
                 padding: 0.5rem;
             }

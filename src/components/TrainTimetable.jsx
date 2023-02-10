@@ -44,7 +44,7 @@ const TrainTimetable = () => {
           id=""
           onChange={(e) => setTrainNo(e.target.value)}
         />
-        <button type="submit" onClick={(e) => handleSubmit(e)}>
+        <button type="submit" onClick={handleSubmit}>
           Find Trains
         </button>
       </form>

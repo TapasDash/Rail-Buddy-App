@@ -6,6 +6,7 @@ import Navbar from "./components/layout/Navbar";
 import PnrDetails from "./components/PnrDetails";
 import PnrStatus from "./components/PnrStatus";
 import TrainBetweenStations from "./components/TrainBetweenStations";
+import TrainBetweenStationsDetails from "./components/TrainBetweenStationsDetails";
 import TrainTimetable from "./components/TrainTimeTable";
 import TrainTimetableDetails from "./components/TrainTimetableDetails";
 import "./styles/app.scss";
@@ -18,6 +19,10 @@ function App() {
       <Routes>
         <Route path="/" element={<PnrStatus />} />
         <Route path="/train-btw-stn" element={<TrainBetweenStations />} />
+        <Route
+          path="/train-btw-stn-details"
+          element={<TrainBetweenStationsDetails />}
+        />
         <Route path="/train-timetable" element={<TrainTimetable />} />
         <Route
           path="/train-timetable-details"

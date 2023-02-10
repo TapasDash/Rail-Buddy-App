@@ -1,35 +1,40 @@
 import { useEffect, useState } from "react";
+import { getTrainBetweenStations } from "../features/trainBetweenStations/trainBetweenStationsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import "../styles/trainBetweenStations.scss";
 import { trainCodesData } from "./trainCodesData";
 
 const TrainBetweenStations = () => {
   const { data } = trainCodesData;
+
   const [trainData, setTrainData] = useState({
-    fromStation: {
-      name: "",
-      code: "",
-    },
-    toStation: {
-      name: "",
-      code: "",
-    },
+    fromStation: "",
+    toStation: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const [stationName, stationCode] = value.split("-");
-    console.log({ stationName, stationCode });
     setTrainData((prevFormData) => {
       return {
         ...prevFormData,
-        [`${name}.name`]: stationName,
-        [`${name}.code`]: stationCode,
+        [name]: value,
       };
     });
   };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const searchFromStationItem = (searchTerm) => setFromStation(searchTerm);
-  const searchToStationItem = (searchTerm) => setToStation(searchTerm);
+    let { fromStation, toStation } = trainData;
+    fromStation = fromStation.split("-")[1];
+    toStation = toStation.split("-")[1];
+    console.log({ fromStation, toStation });
+    dispatch(getTrainBetweenStations(fromStation, toStation));
+    navigate("/train-btw-stn-details");
+  };
   // useEffect(() => {
   //   return () => {
   //     setStation("");
@@ -38,31 +43,29 @@ const TrainBetweenStations = () => {
 
   return (
     <section className="trainBetweenStationsContainer">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4>From Station:</h4>
         <input
           type="text"
           placeholder="Station Name/ Station Code"
           name="fromStation"
-          value={
-            trainData.fromStation.name &&
-            `${trainData.fromStation.name} - ${trainData.fromStation.code} `
-          }
+          value={trainData.fromStation}
           onChange={handleChange}
         />
         <div className="dropdown">
-          {trainData.fromStation.name &&
+          {trainData.fromStation &&
             data
               .filter((item) => {
-                const searchTerm = `${trainData.fromStation.name} - ${trainData.fromStation.code} `;
+                const searchTerm = trainData.fromStation.toLowerCase();
                 const fullName = item.name.toLowerCase();
                 const { code } = item;
+                const regex = new RegExp(`${searchTerm}`, "gi");
 
                 return (
-                  (searchTerm && fullName.includes(searchTerm)) ||
-                  (code.includes(searchTerm) &&
-                    searchTerm !== item.name &&
-                    searchTerm !== item.code)
+                  (searchTerm &&
+                    fullName.match(regex) &&
+                    fullName !== searchTerm) ||
+                  (code.match(regex) && code !== searchTerm)
                 );
               })
               .slice(0, 10)
@@ -72,7 +75,7 @@ const TrainBetweenStations = () => {
                     setTrainData((prevFormData) => {
                       return {
                         ...prevFormData,
-                        fromStation: item.name,
+                        fromStation: `${item.name} - ${item.code}`,
                       };
                     })
                   }
@@ -88,22 +91,21 @@ const TrainBetweenStations = () => {
           type="text"
           placeholder="Station Name/ Station Code"
           name="toStation"
-          value={`${trainData.toStation.name} - ${trainData.toStation.code} `}
+          value={trainData.toStation}
           onChange={handleChange}
         />
         <div className="dropdown">
           {trainData.toStation &&
             data
               .filter((item) => {
-                const searchTerm = `${trainData.toStation.name} - ${trainData.toStation.code} `;
+                const searchTerm = trainData.toStation.toLowerCase();
                 const fullName = item.name.toLowerCase();
                 const { code } = item;
+                const regex = new RegExp(`${searchTerm}`, "gi");
 
                 return (
-                  (searchTerm &&
-                    fullName.includes(searchTerm) &&
-                    searchTerm !== item.name) ||
-                  (code.includes(searchTerm) && searchTerm !== item.code)
+                  (fullName.match(regex) && fullName !== searchTerm) ||
+                  (code.match(regex) && code !== searchTerm)
                 );
               })
               .slice(0, 10)
@@ -113,7 +115,7 @@ const TrainBetweenStations = () => {
                     setTrainData((prevFormData) => {
                       return {
                         ...prevFormData,
-                        toStation: item.name,
+                        toStation: `${item.name} - ${item.code}`,
                       };
                     })
                   }

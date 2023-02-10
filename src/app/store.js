@@ -13,6 +13,7 @@ import storage from "reduxjs-toolkit-persist/lib/storage";
 import autoMergeLevel1 from "reduxjs-toolkit-persist/lib/stateReconciler/autoMergeLevel1";
 import { pnrStatusReducer } from "../features/pnrStatus/pnrStatusSlice";
 import { trainTimetableReducer } from "../features/trainTimetable/trainTimetableSlice";
+import { trainBetweenStationsReducer } from "../features/trainBetweenStations/trainBetweenStationsSlice";
 
 const persistConfig = {
   key: "root",
@@ -23,6 +24,7 @@ const persistConfig = {
 const reducers = combineReducers({
   pnrStatus: pnrStatusReducer,
   trainTimetable: trainTimetableReducer,
+  trainBetweenStations: trainBetweenStationsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

@@ -25,9 +25,9 @@ const PnrStatus = () => {
   useEffect(() => {
     if (isError) console.error(message);
 
-    if (isSuccess || pnrStatusData) {
-      navigate("/pnr-details");
-    }
+    // if (isSuccess || pnrStatusData) {
+    //   navigate("/pnr-details");
+    // }
     // return () => {
     //   dispatch(reset());
     // };

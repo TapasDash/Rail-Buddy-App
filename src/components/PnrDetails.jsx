@@ -32,9 +32,9 @@ const PnrDetails = () => {
   useEffect(() => {
     if (isError) console.error(message);
 
-    if (!isSuccess) {
-      navigate("/");
-    }
+    // if (!isSuccess) {
+    //   navigate("/");
+    // }
     // return () => {
     //   dispatch(reset());
     // };
@@ -92,7 +92,7 @@ const PnrDetails = () => {
         </div>
       </div>
       <section className="trainTimetableDetails">
-        <table class="trainTable">
+        <table className="trainTable">
           <thead>
             <tr>
               <th>SNo</th>
