@@ -13,12 +13,12 @@ const TrainTimetableDetails = () => {
   useEffect(() => {
     if (isError) console.error(message);
 
-    if (!isSuccess) {
-      navigate("/train-timetable");
-    }
-    return () => {
-      dispatch(reset());
-    };
+    // if (!isSuccess) {
+    //   navigate("/train-timetable");
+    // }
+    // return () => {
+    //   dispatch(reset());
+    // };
   }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
 
   if (isLoading) return <h1>Loading....</h1>;
