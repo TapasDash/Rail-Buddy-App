@@ -45,7 +45,7 @@ const TrainBetweenStationsDetails = () => {
   //     <h5>{boardingInfo.arrivalTime}</h5>
   //   </section>
   // );
-
+  const cleanTrainStationsData = [];
   trainBetweenStationsData.map((trainData) => {
     console.log({ trainData });
     const {
@@ -70,14 +70,17 @@ const TrainBetweenStationsDetails = () => {
       name: destinationStationName,
       time: departureTime,
     };
-    return (
+    cleanTrainStationsData.push({ fromStation, toStation, trainName, trainNo });
+  });
+  return cleanTrainStationsData.map(
+    ({ fromStation, toStation, trainName, trainNo }) => (
       <TrainInfoCard
         fromStation={fromStation}
         toStation={toStation}
-        trainNo={trainNo}
         trainName={trainName}
+        trainNo={trainNo}
       />
-    );
-  });
+    )
+  );
 };
 export default TrainBetweenStationsDetails;
