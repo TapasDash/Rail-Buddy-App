@@ -23,7 +23,9 @@ const initialState = {
 
 export const getTrainBetweenStations = createAsyncThunk(
   "get/trainBetweenStations",
-  async (fromStation, toStation, thunkAPI) => {
+  async (stationObj, thunkAPI) => {
+    const { fromStation, toStation } = stationObj;
+    console.log("In getTrains", { fromStation, toStation });
     try {
       return await trainBetweenStationsService.getTrainBetweenStations(
         fromStation,

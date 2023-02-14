@@ -17,11 +17,12 @@ const TrainBetweenStationsDetails = () => {
   //     trainInfo: { dt, name, trainNo },
   //   },
   // } = useSelector((state) => state.pnrStatus);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //   const dispatch = useDispatch();
+  //   const navigate = useNavigate();
 
-  const { trainBetweenStationsData, isLoading, isError, message, isSuccess } =
-    useSelector((state) => state.trainBetweenStations);
+  const { trainBetweenStationsData, isLoading, isError, message } = useSelector(
+    (state) => state.trainBetweenStations
+  );
   console.log({ trainBetweenStationsData });
 
   useEffect(() => {
@@ -33,32 +34,10 @@ const TrainBetweenStationsDetails = () => {
     // return () => {
     //   dispatch(reset());
     // };
-  }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
+  }, [isError, message]); //isError, message, dispatch, navigate
   // console.log({ trainBetweenStationsData });
   if (isLoading) return <h1>Loading....</h1>;
 
-  const {
-    stationName,
-    stationCode,
-    destinationStationName,
-    destinationStation,
-    trainNo,
-    trainName,
-    arrivalTime,
-    departureTime,
-  } = trainBetweenStationsData || {};
-
-  const fromStation = {
-    code: stationCode,
-    name: stationName,
-    time: arrivalTime,
-  };
-
-  const toStation = {
-    code: destinationStation,
-    name: destinationStationName,
-    time: departureTime,
-  };
   // r
   // return (
   //   <section className="fromStation">
@@ -67,13 +46,38 @@ const TrainBetweenStationsDetails = () => {
   //     <h5>{boardingInfo.arrivalTime}</h5>
   //   </section>
   // );
-  return (
-    <TrainInfoCard
-      fromStation={fromStation}
-      toStation={toStation}
-      trainNo={trainNo}
-      trainName={trainName}
-    />
-  );
+
+  trainBetweenStationsData.map((trainData) => {
+    const {
+      stationName,
+      stationCode,
+      destinationStationName,
+      destinationStation,
+      trainNo,
+      trainName,
+      arrivalTime,
+      departureTime,
+    } = trainData || {};
+
+    const fromStation = {
+      code: stationCode,
+      name: stationName,
+      time: arrivalTime,
+    };
+
+    const toStation = {
+      code: destinationStation,
+      name: destinationStationName,
+      time: departureTime,
+    };
+    return (
+      <TrainInfoCard
+        fromStation={fromStation}
+        toStation={toStation}
+        trainNo={trainNo}
+        trainName={trainName}
+      />
+    );
+  });
 };
 export default TrainBetweenStationsDetails;

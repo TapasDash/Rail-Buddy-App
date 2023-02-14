@@ -29,10 +29,11 @@ const TrainBetweenStations = () => {
     e.preventDefault();
 
     let { fromStation, toStation } = trainData;
-    fromStation = fromStation.split("-")[1];
-    toStation = toStation.split("-")[1];
+    fromStation = fromStation.split("-")[1].trim();
+    toStation = toStation.split("-")[1].trim();
     console.log({ fromStation, toStation });
-    dispatch(getTrainBetweenStations(fromStation, toStation));
+    const trainObj = { fromStation, toStation };
+    dispatch(getTrainBetweenStations(trainObj, toStation));
     navigate("/train-btw-stn-details");
   };
   // useEffect(() => {
