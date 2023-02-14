@@ -23,18 +23,17 @@ const TrainBetweenStationsDetails = () => {
   const { trainBetweenStationsData, isLoading, isError, message } = useSelector(
     (state) => state.trainBetweenStations
   );
-  console.log({ trainBetweenStationsData });
 
-  useEffect(() => {
-    if (isError) console.error(message);
+  //   useEffect(() => {
+  //     if (isError) console.error(message);
 
-    // if (!isSuccess) {
-    //   navigate("/");
-    // }
-    // return () => {
-    //   dispatch(reset());
-    // };
-  }, [isError, message]); //isError, message, dispatch, navigate
+  //     // if (!isSuccess) {
+  //     //   navigate("/");
+  //     // }
+  //     // return () => {
+  //     //   dispatch(reset());
+  //     // };
+  //   }, [isError, message]); //isError, message, dispatch, navigate
   // console.log({ trainBetweenStationsData });
   if (isLoading) return <h1>Loading....</h1>;
 
@@ -48,6 +47,7 @@ const TrainBetweenStationsDetails = () => {
   // );
 
   trainBetweenStationsData.map((trainData) => {
+    console.log({ trainData });
     const {
       stationName,
       stationCode,
