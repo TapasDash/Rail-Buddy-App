@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -12,7 +12,6 @@ const TrainTimetable = () => {
   const [trainNo, setTrainNo] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,9 +40,7 @@ const TrainTimetable = () => {
           id=""
           onChange={(e) => setTrainNo(e.target.value)}
         />
-        <button type="submit">
-          Find Trains
-        </button>
+        <button type="submit">Find Trains</button>
       </form>
     </section>
   );
