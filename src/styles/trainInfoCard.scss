@@ -13,32 +13,34 @@
     border: 1px solid $primary;
     box-shadow: 0 0 10px $primary;
     border-radius: 7px;
-    
-       > .trainInfoSection {
-            display: flex;
-            flex-direction: column;
-            align-items:center;
-            gap: 0.25rem;
 
-            svg {
-                font-size: 2rem;
-            }
-        }
+    >.trainInfoSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
 
-        > .stationSection {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-weight: 500;
+        svg {
+            font-size: 2rem;
         }
-    
+    }
+
+    >.stationSection {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-weight: 500;
+    }
+
 }
 
 
 @media screen and (max-width: 600px) {
     .trainInfoCard {
+        width: 95%;
         padding: 1.1rem;
         display: flex;
+        flex-wrap: wrap;
         gap: 0.005rem;
         margin: 7rem auto;
     }

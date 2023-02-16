@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {  useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   getTrainTimetableData,
@@ -13,9 +13,6 @@ const TrainTimetable = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { trainTimetableData, isError, message, isSuccess } = useSelector(
-    (state) => state.trainTimetable
-  );
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,18 +21,18 @@ const TrainTimetable = () => {
     navigate("/train-timetable-details");
   };
 
-  useEffect(() => {
-    if (isError) return console.error(message);
+  // useEffect(() => {
+  //   if (isError) return console.error(message);
 
-    if (isSuccess || trainTimetableData) navigate("/train-timetable-details");
+  //   if (isSuccess || trainTimetableData) navigate("/train-timetable-details");
 
-    // return () => {
-    //   dispatch(reset());
-    // };
-  }, [isError, message, dispatch, navigate]);
+  //   // return () => {
+  //   //   dispatch(reset());
+  //   // };
+  // }, [isError, message, dispatch, navigate]);
   return (
     <section className="trainTimetableContainer">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h4>Enter Train Name or Train Number:</h4>
         <input
           type="text"
@@ -44,7 +41,7 @@ const TrainTimetable = () => {
           id=""
           onChange={(e) => setTrainNo(e.target.value)}
         />
-        <button type="submit" onClick={handleSubmit}>
+        <button type="submit">
           Find Trains
         </button>
       </form>

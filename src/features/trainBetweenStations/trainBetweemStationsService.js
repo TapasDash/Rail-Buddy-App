@@ -5,7 +5,7 @@ import axios from "axios";
 //     fromStation
 //   )}&destinationStation=${encodeURIComponent(toStation)}`
 // );
-const TRAIN_TIMETABLE_URL = new URL(`https://inr.onrender.com/api/v1/train`);
+const TRAIN_TIMETABLE_URL = `https://inr.onrender.com/api/v1/train`;
 
 const getTrainBetweenStations = async (fromStation, toStation) => {
   console.log("getTrainBetweenStations", { fromStation, toStation });
