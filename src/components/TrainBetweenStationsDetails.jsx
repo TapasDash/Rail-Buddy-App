@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import "../styles/trainInfoCard.scss";
+import "../styles/trainBetweenStationsDetails.scss";
+
 import TrainInfoCard from "./TrainInfoCard";
 
 const TrainBetweenStationsDetails = () => {
@@ -72,6 +76,7 @@ const TrainBetweenStationsDetails = () => {
     };
     cleanTrainStationsData.push({ fromStation, toStation, trainName, trainNo });
   });
+
   return cleanTrainStationsData.map(
     ({ fromStation, toStation, trainName, trainNo }) => (
       <TrainInfoCard
