@@ -29,29 +29,10 @@ const TrainBetweenStationsDetails = () => {
     (state) => state.trainBetweenStations
   );
 
-  //   useEffect(() => {
-  //     if (isError) console.error(message);
-
-  //     // if (!isSuccess) {
-  //     //   navigate("/");
-  //     // }
-  //     // return () => {
-  //     //   dispatch(reset());
-  //     // };
-  //   }, [isError, message]); //isError, message, dispatch, navigate
-  // console.log({ trainBetweenStationsData });
   if (isLoading) return <TrainLoader />;
 
-  // r
-  // return (
-  //   <section className="fromStation">
-  //     <h2>{boardingInfo.stationCode}</h2>
-  //     <p>{boardingInfo.stationName}</p>
-  //     <h5>{boardingInfo.arrivalTime}</h5>
-  //   </section>
-  // );
-  const cleanTrainStationsData = [];
-  trainBetweenStationsData.map((trainData) => {
+  let cleanedUpTrainStationsData = [];
+  trainBetweenStationsData.flat().map((trainData) => {
     console.log({ trainData });
     const {
       stationName,
@@ -75,10 +56,10 @@ const TrainBetweenStationsDetails = () => {
       name: destinationStationName,
       time: departureTime,
     };
-    cleanTrainStationsData.push({ fromStation, toStation, trainName, trainNo });
+    cleanedUpTrainStationsData.push({ fromStation, toStation, trainName, trainNo });
   });
 
-  return cleanTrainStationsData.map(
+  return cleanedUpTrainStationsData.map(
     ({ fromStation, toStation, trainName, trainNo }) => (
       <TrainInfoCard
         fromStation={fromStation}

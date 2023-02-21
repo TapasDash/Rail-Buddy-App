@@ -11,17 +11,6 @@ const TrainTimetableDetails = () => {
   const { trainTimetableData, isLoading, isError, message, isSuccess } =
     useSelector((state) => state.trainTimetable);
 
-  // useEffect(() => {
-  //   if (isError) console.error(message);
-
-  //   // if (!isSuccess) {
-  //   //   navigate("/train-timetable");
-  //   // }
-  //   // return () => {
-  //   //   dispatch(reset());
-  //   // };
-  // }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
-
   if (isLoading) return <TrainLoader />;
   return (
     <section className="trainTimetableDetails">

@@ -5,13 +5,7 @@ import { MdDirectionsRailway } from "react-icons/md";
 import "../styles/trainInfoCard.scss";
 
 const TrainInfoCard = ({ fromStation, toStation, trainNo, trainName }) => {
-  //   const {
-  //     pnrStatusData: {
-  //       boardingInfo,
-  //       destinationInfo,
-  //       trainInfo: { dt, name, trainNo },
-  //     },
-  //   } = useSelector((state) => state.pnrStatus);
+  console.log("In info card",{ fromStation, toStation, trainNo, trainName })
   return (
     <main className="trainInfoCard">
       <section className="stationSection">

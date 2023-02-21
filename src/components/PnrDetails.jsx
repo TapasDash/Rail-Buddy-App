@@ -30,17 +30,6 @@ const PnrDetails = () => {
   );
   console.log({ pnrStatusData });
 
-  // useEffect(() => {
-  //   if (isError) console.error(message);
-
-  //   // if (!isSuccess) {
-  //   //   navigate("/");
-  //   // }
-  //   // return () => {
-  //   //   dispatch(reset());
-  //   // };
-  // }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
-  // console.log({ pnrStatusData });
   if (isLoading) return <TrainLoader />;
 
   const {
