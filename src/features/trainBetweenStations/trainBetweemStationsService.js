@@ -5,7 +5,7 @@ import axios from "axios";
 //     fromStation
 //   )}&destinationStation=${encodeURIComponent(toStation)}`
 // );
-const TRAIN_TIMETABLE_URL = `https://inr.onrender.com/api/v1/train`;
+const TRAIN_TIMETABLE_URL = `https://inr.onrender.com/api/v1/trains`;
 
 const getTrainBetweenStations = async (fromStation, toStation) => {
   console.log("getTrainBetweenStations", { fromStation, toStation });
@@ -25,12 +25,9 @@ const getTrainBetweenStations = async (fromStation, toStation) => {
   //   TRAIN_TIMETABLE_URL.searchParams = search;
 
   console.log({ TRAIN_TIMETABLE_URL });
-  const response = await axios.get(TRAIN_TIMETABLE_URL, {
-    params: {
-      stationCode: encodeURIComponent(fromStation),
-      destinationStation: encodeURIComponent(toStation),
-    },
-  }); // { stationCode: fromStation, destinationStation: toStation }
+  const response = await axios.get(
+    `${TRAIN_TIMETABLE_URL}/${fromStation}/${toStation}`
+  ); // { stationCode: fromStation, destinationStation: toStation }
   console.log({ response });
   console.log(response?.data?.data);
   return response?.data?.data;
