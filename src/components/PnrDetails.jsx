@@ -6,6 +6,7 @@ import TrainInfoCard from "./TrainInfoCard";
 
 import "../styles/pnrDetails.scss";
 import { getPNRStatus, reset } from "../features/pnrStatus/pnrStatusSlice";
+import TrainLoader from "../utils/trainLoader/trainLoader";
 
 const PnrDetails = () => {
   // const {
@@ -29,18 +30,18 @@ const PnrDetails = () => {
   );
   console.log({ pnrStatusData });
 
-  useEffect(() => {
-    if (isError) console.error(message);
+  // useEffect(() => {
+  //   if (isError) console.error(message);
 
-    // if (!isSuccess) {
-    //   navigate("/");
-    // }
-    // return () => {
-    //   dispatch(reset());
-    // };
-  }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
+  //   // if (!isSuccess) {
+  //   //   navigate("/");
+  //   // }
+  //   // return () => {
+  //   //   dispatch(reset());
+  //   // };
+  // }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
   // console.log({ pnrStatusData });
-  if (isLoading) return <h1>Loading....</h1>;
+  if (isLoading) return <TrainLoader />;
 
   const {
     boardingInfo,

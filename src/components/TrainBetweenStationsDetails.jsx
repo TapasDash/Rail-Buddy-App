@@ -6,6 +6,7 @@ import "../styles/trainInfoCard.scss";
 import "../styles/trainBetweenStationsDetails.scss";
 
 import TrainInfoCard from "./TrainInfoCard";
+import TrainLoader from "../utils/trainLoader/trainLoader";
 
 const TrainBetweenStationsDetails = () => {
   // const {
@@ -39,7 +40,7 @@ const TrainBetweenStationsDetails = () => {
   //     // };
   //   }, [isError, message]); //isError, message, dispatch, navigate
   // console.log({ trainBetweenStationsData });
-  if (isLoading) return <h1>Loading....</h1>;
+  if (isLoading) return <TrainLoader />;
 
   // r
   // return (

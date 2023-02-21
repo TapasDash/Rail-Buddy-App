@@ -3,6 +3,7 @@ import { reset } from "../features/trainTimetable/trainTimetableSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../styles/trainTimetableDetails.scss";
+import TrainLoader from "../utils/trainLoader/trainLoader";
 
 const TrainTimetableDetails = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const TrainTimetableDetails = () => {
   //   // };
   // }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
 
-  if (isLoading) return <h1>Loading....</h1>;
+  if (isLoading) return <TrainLoader />;
   return (
     <section className="trainTimetableDetails">
       <table>
