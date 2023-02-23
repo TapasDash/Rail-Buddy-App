@@ -32,7 +32,7 @@ const TrainBetweenStationsDetails = () => {
   if (isLoading) return <TrainLoader />;
 
   let cleanedUpTrainStationsData = [];
-  trainBetweenStationsData.flat().map((trainData) => {
+  trainBetweenStationsData.map((trainData) => {
     console.log({ trainData });
     const {
       stationName,
