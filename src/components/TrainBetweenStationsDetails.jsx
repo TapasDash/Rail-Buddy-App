@@ -34,29 +34,36 @@ const TrainBetweenStationsDetails = () => {
   let cleanedUpTrainStationsData = [];
   trainBetweenStationsData.map((trainData) => {
     console.log({ trainData });
-    const {
-      stationName,
-      stationCode,
-      destinationStationName,
-      destinationStation,
-      trainNo,
-      trainName,
-      arrivalTime,
-      departureTime,
-    } = trainData || {};
+    const { src, dest } = trainData || {};
+    const { trainName, trainNo } = src;
+    // const {
+    //   stationName,
+    //   stationCode,
+    //   destinationStationName,
+    //   destinationStation,
+    //   trainNo,
+    //   trainName,
+    //   arrivalTime,
+    //   departureTime,
+    // } = trainData || {};
 
     const fromStation = {
-      code: stationCode,
-      name: stationName,
-      time: arrivalTime,
+      code: src.stationCode,
+      name: src.stationName,
+      time: src.arrivalTime,
     };
 
     const toStation = {
-      code: destinationStation,
-      name: destinationStationName,
-      time: departureTime,
+      code: dest.stationCode,
+      name: dest.stationName,
+      time: dest.arrivalTime,
     };
-    cleanedUpTrainStationsData.push({ fromStation, toStation, trainName, trainNo });
+    cleanedUpTrainStationsData.push({
+      fromStation,
+      toStation,
+      trainName,
+      trainNo,
+    });
   });
 
   return cleanedUpTrainStationsData.map(

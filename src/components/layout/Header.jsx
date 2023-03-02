@@ -11,7 +11,7 @@ const Header = () => {
         <div>
           <BiArrowBack />
           <Link to="/">
-            <RiTrainLine /> 
+            <RiTrainLine />
           </Link>
         </div>
         <GiHamburgerMenu />

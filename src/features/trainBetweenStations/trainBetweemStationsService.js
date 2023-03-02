@@ -5,13 +5,15 @@ import axios from "axios";
 //     fromStation
 //   )}&destinationStation=${encodeURIComponent(toStation)}`
 // );
-const TRAIN_TIMETABLE_URL = `https://inr.onrender.com/api/v1/trains`;
+const TRAIN_TIMETABLE_URL = `http://localhost:5000/api/v1/train`;
 
 const getTrainBetweenStations = async (fromStation, toStation) => {
   console.log("getTrainBetweenStations", { fromStation, toStation });
-  
+
   console.log({ TRAIN_TIMETABLE_URL });
-  const response = await axios.get(`${TRAIN_TIMETABLE_URL}/${fromStation}/${toStation}`); // { stationCode: fromStation, destinationStation: toStation }
+  const response = await axios.get(
+    `${TRAIN_TIMETABLE_URL}/${fromStation}/${toStation}`
+  ); // { stationCode: fromStation, destinationStation: toStation }
   console.log({ response });
   console.log(response?.data?.data);
   return response?.data?.data;
