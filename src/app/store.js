@@ -14,6 +14,7 @@ import autoMergeLevel1 from "reduxjs-toolkit-persist/lib/stateReconciler/autoMer
 import { pnrStatusReducer } from "../features/pnrStatus/pnrStatusSlice";
 import { trainTimetableReducer } from "../features/trainTimetable/trainTimetableSlice";
 import { trainBetweenStationsReducer } from "../features/trainBetweenStations/trainBetweenStationsSlice";
+import { trainInfoReducer } from "../features/trainInfo/trainInfoSlice";
 
 const persistConfig = {
   key: "root",
@@ -25,6 +26,7 @@ const reducers = combineReducers({
   pnrStatus: pnrStatusReducer,
   trainTimetable: trainTimetableReducer,
   trainBetweenStations: trainBetweenStationsReducer,
+  trainInfo: trainInfoReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

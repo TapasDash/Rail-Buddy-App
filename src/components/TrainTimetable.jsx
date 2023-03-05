@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import axios from "axios";
+import useAxios from "axios-hooks";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   getTrainTimetableData,
@@ -9,26 +11,49 @@ import {
 import "../styles/trainTimetable.scss";
 
 const TrainTimetable = () => {
-  const [trainInfo, setTrainNo] = useState("");
+  const [trainInfo, setTrainInfo] = useState("");
+  const [trainInfoData, setTrainInfoData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // console.log(process.env);
+  const url = `http://localhost:5000/api/v1/train/info`;
+  const fetchData = async () => {
+    return await axios.get(url);
+  };
+
+  useEffect(() => {
+    console.log("useEfect ran");
+    const fetchAPI = async () => {
+      const response = await fetchData();
+      setTrainInfoData(response.data.data);
+    };
+
+    fetchAPI();
+  }, []);
+
+  // console.log({ trainInfoData });
+  // const getTrainInfoData = async () => {
+  //   console.log("useEffect ran");
+  //   const data = await axios.get(
+  //     `${process.env.REACT_APP_TRAIN_TIMETABLE_URL}/info`
+  //   );
+
+  // };
+
+  // useEffect(async () => {
+  //   getTrainInfoData();
+  // }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({ trainInfo });
-    dispatch(getTrainTimetableData(trainInfo));
+    let [trainNo] = trainInfo.split("-");
+    trainNo = trainNo.trim();
+    console.log({ trainNo });
+    console.log(process.env.REACT_APP_TRAIN_TIMETABLE_URL);
+    dispatch(getTrainTimetableData(trainNo));
     navigate("/train-timetable-details");
   };
 
-  // useEffect(() => {
-  //   if (isError) return console.error(message);
-
-  //   if (isSuccess || trainTimetableData) navigate("/train-timetable-details");
-
-  //   // return () => {
-  //   //   dispatch(reset());
-  //   // };
-  // }, [isError, message, dispatch, navigate]);
   return (
     <section className="trainTimetableContainer">
       <form onSubmit={handleSubmit}>
@@ -37,39 +62,36 @@ const TrainTimetable = () => {
           type="text"
           placeholder="Train Number Or Train Name"
           name="trainInfo"
-          onChange={(e) => setTrainNo(e.target.value)}
+          value={trainInfo}
+          onChange={(e) => setTrainInfo(e.target.value)}
         />
         <div className="dropdown">
           {trainInfo &&
-            data
+            trainInfoData.length &&
+            trainInfoData
               .filter((item) => {
-                const searchTerm = trainData.fromStation.toLowerCase();
-                const fullName = item.name.toLowerCase();
-                const { code } = item;
+                const searchTerm = trainInfo.toLowerCase();
+                const trainName = item.trainName.toLowerCase();
+                const { _id: trainNo } = item;
                 const regex = new RegExp(`${searchTerm}`, "gi");
 
                 return (
                   (searchTerm &&
-                    fullName.match(regex) &&
-                    fullName !== searchTerm) ||
-                  (code.match(regex) && code !== searchTerm)
+                    trainName.match(regex) &&
+                    trainName !== searchTerm) ||
+                  (trainNo.match(regex) && trainNo !== searchTerm)
                 );
               })
               .slice(0, 10)
               .map((item) => (
                 <div
                   onClick={() =>
-                    setTrainData((prevFormData) => {
-                      return {
-                        ...prevFormData,
-                        fromStation: `${item.name} - ${item.code}`,
-                      };
-                    })
+                    setTrainInfo(`${item._id} - ${item.trainName}`)
                   }
                   className="dropdown-row"
-                  key={item.code}
+                  key={item._id}
                 >
-                  {item.name} - {item.code}
+                  {item._id} - {item.trainName}
                 </div>
               ))}
         </div>

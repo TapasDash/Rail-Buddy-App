@@ -22,16 +22,16 @@ const PnrStatus = () => {
     navigate("/pnr-details");
   };
 
-  useEffect(() => {
-    if (isError) console.error(message);
+  // useEffect(() => {
+  //   if (isError) console.error(message);
 
-    // if (isSuccess || pnrStatusData) {
-    //   navigate("/pnr-details");
-    // }
-    // return () => {
-    //   dispatch(reset());
-    // };
-  }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
+  //   // if (isSuccess || pnrStatusData) {
+  //   //   navigate("/pnr-details");
+  //   // }
+  //   // return () => {
+  //   //   dispatch(reset());
+  //   // };
+  // }, [isError, message, dispatch, navigate]); //isError, message, dispatch, navigate
 
   return (
     <section className="pnrStatusContainer">

@@ -1,18 +1,12 @@
 import axios from "axios";
-
-// const TRAIN_TIMETABLE_URL = new URL(
-//   `https://inr.onrender.com/api/v1/train?stationCode=${encodeURIComponent(
-//     fromStation
-//   )}&destinationStation=${encodeURIComponent(toStation)}`
-// );
-const TRAIN_TIMETABLE_URL = `http://localhost:5000/api/v1/train`;
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const getTrainBetweenStations = async (fromStation, toStation) => {
   console.log("getTrainBetweenStations", { fromStation, toStation });
 
-  console.log({ TRAIN_TIMETABLE_URL });
   const response = await axios.get(
-    `${TRAIN_TIMETABLE_URL}/${fromStation}/${toStation}`
+    `${process.env.REACT_APP_TRAIN_TIMETABLE_URL}/${fromStation}/${toStation}`
   ); // { stationCode: fromStation, destinationStation: toStation }
   console.log({ response });
   console.log(response?.data?.data);

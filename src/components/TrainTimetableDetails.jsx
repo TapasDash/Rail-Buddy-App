@@ -6,8 +6,6 @@ import "../styles/trainTimetableDetails.scss";
 import TrainLoader from "../utils/trainLoader/trainLoader";
 
 const TrainTimetableDetails = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { trainTimetableData, isLoading, isError, message, isSuccess } =
     useSelector((state) => state.trainTimetable);
 
@@ -40,7 +38,7 @@ const TrainTimetableDetails = () => {
                 distance,
               }) => (
                 <>
-                  <tr>
+                  <tr key={seq}>
                     <td>{seq}</td>
                     <td>{stationName}</td>
                     <td>{arrivalTime.substring(0, 5)}</td>

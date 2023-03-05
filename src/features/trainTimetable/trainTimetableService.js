@@ -1,9 +1,12 @@
 import axios from "axios";
-
-const TRAIN_TIMETABLE_URL = "https://inr.onrender.com/api/v1/train";
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const getTrainTimetableData = async (trainNo) => {
-  const response = await axios.get(`${TRAIN_TIMETABLE_URL}?trainNo=${trainNo}`);
+  console.log({ trainNo }, process.env);
+  const response = await axios.get(
+    `${process.env.REACT_APP_TRAIN_TIMETABLE_URL}?trainNo=${trainNo}`
+  );
   console.log({ response });
   console.log(response?.data?.data);
   return response?.data?.data;

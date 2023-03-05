@@ -1,18 +1,22 @@
 import axios from "axios";
-
-const PNR_API_URL = "https://pnr-status-indian-railway.p.rapidapi.com/pnr-check/";
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const getPNRStatus = async (pnrNumber) => {
+  console.log(process.env);
   const config = {
     headers: {
-      "X-RapidAPI-Key": "e9c35096e0msh6e2669d3e6e81c5p1e9255jsnc13d39da54c2",
-      "X-RapidAPI-Host": "pnr-status-indian-railway.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
     },
   };
 
-  const response = await axios.get(PNR_API_URL + pnrNumber, config);
-  console.log({ response })
-  console.log(response.data.data)
+  const response = await axios.get(
+    process.env.REACT_APP_PNR_API_URL + pnrNumber,
+    config
+  );
+  // console.log({ response });
+  // console.log(response.data.data);
   return response.data.data;
 };
 

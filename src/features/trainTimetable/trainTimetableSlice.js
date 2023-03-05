@@ -25,7 +25,11 @@ export const getTrainTimetableData = createAsyncThunk(
   "get/trainTimetable",
   async (trainNo, thunkAPI) => {
     try {
-      return await trainTimetableService.getTrainTimetableData(trainNo);
+      console.log(
+        "getTrainTimetableData",
+        process.env.REACT_APP_TRAIN_TIMETABLE_URL
+      );
+      await trainTimetableService.getTrainTimetableData(trainNo);
     } catch (error) {
       const message =
         (error.response &&
