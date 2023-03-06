@@ -3,16 +3,16 @@ import axios from "axios";
 // dotenv.config();
 
 const getPNRStatus = async (pnrNumber) => {
-  console.log(process.env);
+  console.log(import.meta.env);
   const config = {
     headers: {
-      "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-      "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+      "X-RapidAPI-Key": import.meta.env.VITE_REACT_RAPID_API_KEY,
+      "X-RapidAPI-Host": import.meta.env.VITE_REACT_RAPID_API_HOST,
     },
   };
 
   const response = await axios.get(
-    process.env.REACT_APP_PNR_API_URL + pnrNumber,
+    import.meta.env.VITE_REACT_PNR_API_URL + pnrNumber,
     config
   );
   // console.log({ response });

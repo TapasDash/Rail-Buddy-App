@@ -3,9 +3,9 @@ import axios from "axios";
 // dotenv.config();
 
 const getTrainTimetableData = async (trainNo) => {
-  console.log({ trainNo }, process.env);
+  console.log({ trainNo }, import.meta.env);
   const response = await axios.get(
-    `${process.env.REACT_APP_TRAIN_TIMETABLE_URL}?trainNo=${trainNo}`
+    `${import.meta.env.VITE_REACT_TRAIN_TIMETABLE_URL}?trainNo=${trainNo}`
   );
   console.log({ response });
   console.log(response?.data?.data);

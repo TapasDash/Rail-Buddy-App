@@ -18,6 +18,7 @@ const initialState = {
   //   quota: "",
   //   reservationUpto: "",
   //   trainName: "",
+  
   //   trainNumber: "",
 };
 

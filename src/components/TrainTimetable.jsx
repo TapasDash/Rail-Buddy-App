@@ -15,7 +15,7 @@ const TrainTimetable = () => {
   const [trainInfoData, setTrainInfoData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // console.log(process.env);
+  // console.log(import.meta.env);
   const url = `http://localhost:5000/api/v1/train/info`;
   const fetchData = async () => {
     return await axios.get(url);
@@ -35,7 +35,7 @@ const TrainTimetable = () => {
   // const getTrainInfoData = async () => {
   //   console.log("useEffect ran");
   //   const data = await axios.get(
-  //     `${process.env.REACT_APP_TRAIN_TIMETABLE_URL}/info`
+  //     `${import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL}/info`
   //   );
 
   // };
@@ -49,7 +49,7 @@ const TrainTimetable = () => {
     let [trainNo] = trainInfo.split("-");
     trainNo = trainNo.trim();
     console.log({ trainNo });
-    console.log(process.env.REACT_APP_TRAIN_TIMETABLE_URL);
+    console.log(import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL);
     dispatch(getTrainTimetableData(trainNo));
     navigate("/train-timetable-details");
   };

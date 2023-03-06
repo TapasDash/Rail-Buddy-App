@@ -27,7 +27,7 @@ export const getTrainTimetableData = createAsyncThunk(
     try {
       console.log(
         "getTrainTimetableData",
-        process.env.REACT_APP_TRAIN_TIMETABLE_URL
+        import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL
       );
       await trainTimetableService.getTrainTimetableData(trainNo);
     } catch (error) {
