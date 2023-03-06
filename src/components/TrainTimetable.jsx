@@ -15,10 +15,12 @@ const TrainTimetable = () => {
   const [trainInfoData, setTrainInfoData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // console.log(import.meta.env);
-  const url = `http://localhost:5000/api/v1/train/info`;
+  console.log(import.meta.env);
+
   const fetchData = async () => {
-    return await axios.get(url);
+    return await axios.get(
+      `${import.meta.env.VITE_REACT_TRAIN_TIMETABLE_URL}/info`
+    );
   };
 
   useEffect(() => {
