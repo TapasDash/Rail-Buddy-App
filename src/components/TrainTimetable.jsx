@@ -42,13 +42,10 @@ const TrainTimetable = () => {
 
   // useEffect(async () => {
   //   getTrainInfoData();
-  // }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     let [trainNo] = trainInfo.split("-");
-    trainNo = trainNo.trim();
-    console.log({ trainNo });
     console.log(import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL);
     dispatch(getTrainTimetableData(trainNo));
     navigate("/train-timetable-details");

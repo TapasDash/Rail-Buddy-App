@@ -7,7 +7,7 @@ import PnrDetails from "./components/PnrDetails";
 import PnrStatus from "./components/PnrStatus";
 import TrainBetweenStations from "./components/TrainBetweenStations";
 import TrainBetweenStationsDetails from "./components/TrainBetweenStationsDetails";
-import TrainTimetable from "./components/TrainTimeTable";
+import TrainTimetable from "./components/TrainTimetable";
 import TrainTimetableDetails from "./components/TrainTimetableDetails";
 import "./styles/app.scss";
 
