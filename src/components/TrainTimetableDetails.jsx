@@ -3,7 +3,7 @@ import { reset } from "../features/trainTimetable/trainTimetableSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../styles/trainTimetableDetails.scss";
-import TrainLoader from "../utils/trainLoader/trainLoader";
+import TrainLoader from "../utils/TrainLoader/TrainLoader";
 
 const TrainTimetableDetails = () => {
   const { trainTimetableData, isLoading, isError, message, isSuccess } =

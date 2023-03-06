@@ -6,7 +6,7 @@ import "../styles/trainInfoCard.scss";
 import "../styles/trainBetweenStationsDetails.scss";
 
 import TrainInfoCard from "./TrainInfoCard";
-import TrainLoader from "../utils/trainLoader/trainLoader";
+import TrainLoader from "../utils/TrainLoader/TrainLoader";
 
 const TrainBetweenStationsDetails = () => {
   // const {

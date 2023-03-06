@@ -6,7 +6,7 @@ import TrainInfoCard from "./TrainInfoCard";
 
 import "../styles/pnrDetails.scss";
 import { getPNRStatus, reset } from "../features/pnrStatus/pnrStatusSlice";
-import TrainLoader from "../utils/trainLoader/trainLoader";
+import TrainLoader from "../utils/TrainLoader/TrainLoader";
 
 const PnrDetails = () => {
   // const {
