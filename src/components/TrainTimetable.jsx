@@ -15,7 +15,6 @@ const TrainTimetable = () => {
   const [trainInfoData, setTrainInfoData] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(import.meta.env);
 
   const fetchData = async () => {
     return await axios.get(
@@ -48,7 +47,6 @@ const TrainTimetable = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let [trainNo] = trainInfo.split("-");
-    console.log(import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL);
     dispatch(getTrainTimetableData(trainNo));
     navigate("/train-timetable-details");
   };
