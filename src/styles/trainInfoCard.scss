@@ -1,54 +1,53 @@
 @import "colors";
 
 .trainInfoCard {
-    width: 80%;
-    color: $primary;
-    height: 20vh;
+  width: 80%;
+  color: $primary;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  text-align: center;
+  border: 1px solid $primary;
+  box-shadow: 0 0 10px $primary;
+  border-radius: 7px;
+  cursor: pointer;
+
+  > .trainInfoSection {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    margin: 2rem auto;
-    text-align: center;
-    border: 1px solid $primary;
-    box-shadow: 0 0 10px $primary;
-    border-radius: 7px;
+    gap: 0.25rem;
 
-    >.trainInfoSection {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
-
-        svg {
-            font-size: 2rem;
-        }
+    svg {
+      font-size: 2rem;
     }
+  }
 
-    >.stationSection {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        font-weight: 500;
-    }
-
+  > .stationSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
 }
-
 
 @media screen and (max-width: 600px) {
-    .trainInfoCard {
-        width: 95%;
-        padding: 1.1rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.005rem;
-        margin: 7rem auto;
-    }
+  .trainInfoCard {
+    width: 95%;
+    padding: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.005rem;
+    margin: 7rem auto;
+  }
 }
 
-@media screen and (max-width:400px) {
-    .trainInfoCard {
-        display: flex;
-        flex-direction: column;
-    }
+@media screen and (max-width: 400px) {
+  .trainInfoCard {
+    display: flex;
+    flex-direction: column;
+  }
 }

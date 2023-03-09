@@ -4,10 +4,22 @@ import { MdDirectionsRailway } from "react-icons/md";
 
 import "../styles/trainInfoCard.scss";
 
-const TrainInfoCard = ({ fromStation, toStation, trainNo, trainName }) => {
-  console.log("In info card",{ fromStation, toStation, trainNo, trainName })
+const TrainInfoCard = ({
+  fromStation,
+  toStation,
+  trainNo,
+  trainName,
+  onPress,
+}) => {
+  console.log("In info card", {
+    fromStation,
+    toStation,
+    trainNo,
+    trainName,
+    onPress,
+  });
   return (
-    <main className="trainInfoCard">
+    <main className="trainInfoCard" onClick={onPress}>
       <section className="stationSection">
         <h2>{fromStation.code}</h2>
         <p>{fromStation.name}</p>

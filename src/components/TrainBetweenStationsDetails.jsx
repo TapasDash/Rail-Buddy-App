@@ -7,6 +7,7 @@ import "../styles/trainBetweenStationsDetails.scss";
 
 import TrainInfoCard from "./TrainInfoCard";
 import TrainLoader from "../utils/TrainLoader/TrainLoader";
+import { getTrainTimetableData } from "../features/trainTimetable/trainTimetableSlice";
 
 const TrainBetweenStationsDetails = () => {
   // const {
@@ -22,14 +23,21 @@ const TrainBetweenStationsDetails = () => {
   //     trainInfo: { dt, name, trainNo },
   //   },
   // } = useSelector((state) => state.pnrStatus);
-  //   const dispatch = useDispatch();
-  //   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { trainBetweenStationsData, isLoading, isError, message } = useSelector(
     (state) => state.trainBetweenStations
   );
 
   if (isLoading) return <TrainLoader />;
+
+  const onClickTrainInfoCard = (trainNo) => {
+    // let [trainNo] = trainInfo.split("-");
+    // console.log(import.meta.env.REACT_APP_TRAIN_TIMETABLE_URL);
+    dispatch(getTrainTimetableData(trainNo));
+    navigate("/train-timetable-details");
+  };
 
   let cleanedUpTrainStationsData = [];
   trainBetweenStationsData.map((trainData) => {
@@ -73,6 +81,7 @@ const TrainBetweenStationsDetails = () => {
         toStation={toStation}
         trainName={trainName}
         trainNo={trainNo}
+        onPress={() => onClickTrainInfoCard(trainNo)}
       />
     )
   );
