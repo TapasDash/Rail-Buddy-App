@@ -17,9 +17,6 @@ const Navbar = () => {
         <a onClick={() => navigate(-1)}>
           <IoArrowBackSharp />
         </a>
-        {/* <a onClick={() => navigate(-1)}>
-        <IoArrowBackSharp />
-      </a> */}
 
         <a onClick={() => navigate("/")}>
           <RiTrainLine />
