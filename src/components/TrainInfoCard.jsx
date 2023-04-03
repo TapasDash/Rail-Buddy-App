@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { MdDirectionsRailway } from "react-icons/md";
 
 import "../styles/trainInfoCard.scss";
