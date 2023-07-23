@@ -20,16 +20,17 @@
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.299);
     height: 10vh;
-    
+
     svg {
-        padding: 0.5rem;
-        font-size: 3rem;
-        color: $secondary
+      padding: 0.5rem;
+      font-size: 3rem;
+      color: $secondary;
     }
 
-  svg {
-    padding: 0.5rem;
-    font-size: 3rem;
-    color: $secondary;
+    svg {
+      padding: 0.5rem;
+      font-size: 3rem;
+      color: $secondary;
+    }
   }
 }
