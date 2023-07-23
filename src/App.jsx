@@ -14,7 +14,6 @@ import "./styles/app.scss";
 function App() {
   return (
     <Router>
-      {/* <Header /> */}
       <Navbar />
       <Routes>
         <Route path="/" element={<PnrStatus />} />
