@@ -1,36 +1,37 @@
 @import "colors";
 
-
 .trainTimetableDetails {
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-    text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  text-align: center;
 
-    table {
-        margin: 10rem auto;
-        padding: 5rem;
-        tr,td,th {
-            padding: 1.5rem;
-        }
-        
+  table {
+    margin: 10rem auto;
+    padding: 5rem;
+    tr,
+    td,
+    th {
+      padding: 1.5rem;
     }
+  }
 }
 
 @media (max-width: 600px) {
-    .trainTimetableDetails {
-        display: inline;
-        // width: 50%;
-        // height: 50vh;
-        // overflow-y: scroll;
-        text-align: center;
-        table {
-            margin: 5rem auto;
-            padding: 0rem;
-            tr,td,th {
-                padding: 0.5rem;
-            }
-            
-        }
+  .trainTimetableDetails {
+    display: inline;
+    // width: 50%;
+    // height: 50vh;
+    // overflow-y: scroll;
+    text-align: center;
+    table {
+      margin: 5rem auto;
+      padding: 0rem;
+      tr,
+      td,
+      th {
+        padding: 0.5rem;
+      }
     }
+  }
 }

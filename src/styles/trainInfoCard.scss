@@ -15,7 +15,7 @@
   border-radius: 7px;
   cursor: pointer;
   overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
   &:hover {
     transform: scale(1.2);
     background-color: $secondary;
@@ -41,9 +41,8 @@
 }
 
 // .zoom-in-card-hover {
- 
-// }
 
+// }
 
 @media screen and (max-width: 600px) {
   .trainInfoCard {
@@ -54,7 +53,7 @@
     gap: 0.005rem;
     margin: 7rem auto;
     overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-    transition: transform .5s ease;
+    transition: transform 0.5s ease;
     &:hover {
       transform: scale(1.2);
       background-color: $secondary;
@@ -77,7 +76,7 @@
   }
   .zoom-in-card-hover {
     overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-    transition: transform .5s ease;
+    transition: transform 0.5s ease;
     &:hover {
       transform: scale(1.1);
       background-color: $secondary;
@@ -85,7 +84,7 @@
   }
 }
 
-@media(hover: hover) and (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   .trainInfoCard {
     width: 80%;
     color: $primary;
@@ -101,23 +100,23 @@
     border-radius: 7px;
     cursor: pointer;
     overflow: hidden; /* [1.2] Hide the overflowing of child elements */
-    transition: transform .5s ease;
+    transition: transform 0.5s ease;
     &:hover {
       transform: scale(1.2);
       background-color: $secondary;
     }
-  
+
     > .trainInfoSection {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.25rem;
-  
+
       svg {
         font-size: 2rem;
       }
     }
-  
+
     > .stationSection {
       display: flex;
       flex-direction: column;
@@ -125,5 +124,4 @@
       font-weight: 500;
     }
   }
-  }
-
+}
