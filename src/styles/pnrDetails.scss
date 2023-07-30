@@ -12,10 +12,15 @@
   border: 1px solid $primary;
   border-radius: 7px;
   box-shadow: 0 0 10px $primary;
-  overflow-y: scroll;
+  overflow-y: no-scroll;
   // flex-direction: column;
   p {
     margin-top: 1rem;
+  }
+
+  &:hover {
+    transform: scale(1.2);
+    background-color: #b2cef2;
   }
 }
 
