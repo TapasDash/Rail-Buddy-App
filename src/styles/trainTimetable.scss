@@ -1,7 +1,7 @@
 @import "colors";
 
 .trainTimetableContainer {
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   max-width: 900px;
   //   overflow-x: scroll;
@@ -24,7 +24,7 @@
 
     input {
       width: 70%;
-      height: 7vh;
+      height: 8vh;
       border-radius: 7px;
       box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.66);
       text-align: center;
