@@ -20,3 +20,16 @@ a {
 p {
   line-height: 1.7;
 }
+
+//for disabling a scroll behaviour while input number
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  inputmode: numeric;
+}

@@ -38,9 +38,10 @@ const PnrStatus = () => {
       <form>
         <h4>Enter Your PNR Number:</h4>
         <input
-          type="text"
+          type="number"
           placeholder="Enter Your PNR Number"
           name="pnr"
+          onWheel={(e) => e.target.blur()}
           onChange={(e) => setPnrNumber(e.target.value)}
         />
         <button type="submit" onClick={(e) => submitPnr(e)}>

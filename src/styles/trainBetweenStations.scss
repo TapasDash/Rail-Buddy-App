@@ -23,7 +23,7 @@
     input {
       width: 70%;
       height: 7vh;
-
+      font-size: 1.5rem;
       border-radius: 7px;
       box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.66);
       text-align: center;
@@ -50,6 +50,7 @@
 
     input {
       width: 35%;
+      font-size: 1rem;
     }
   }
 }
